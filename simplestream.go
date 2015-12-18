@@ -43,3 +43,13 @@ func (s *SimpleStream) Refresh() error {
 
   return nil
 }
+
+func (s *SimpleStream) Getc() (byte,error) {
+  if s.Pos>=s.N {
+    if e=s.Refresh()
+    e!=nil { return 0, e }
+  }
+  ch := s.Buf[s.Pos]
+  s.Pos++
+  return ch, nil
+}
