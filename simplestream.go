@@ -45,6 +45,7 @@ func (s *SimpleStream) Refresh() error {
 }
 
 func (s *SimpleStream) Getc() (byte,error) {
+  var e error
   if s.Pos>=s.N {
     if e=s.Refresh()
     e!=nil { return 0, e }
